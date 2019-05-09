@@ -63,7 +63,8 @@ session_start();
 
             if (isset($_SESSION['data'])) : 
                 ?>
-            <p>Nous vous remercions pour votre temps. Grâce a vos informations, nous sommes en mesure de vous proposer
+            <p>Merci de nous avoir fait confiance pour réaliser votre diagnostic.Grâce a vos informations, nous sommes
+                en mesure de vous proposer
                 notre pack <b><?php echo $_SESSION['data']->pack;?></b>. Celui ci est composé de
                 <?php echo $_SESSION['data']->contenu;?>.</p>
 
@@ -71,7 +72,7 @@ session_start();
 
             <p>Nous revenons vers vous par mail aussi vite que possible.</p>
 
-            <p>Human Centric Consulting</p>
+            <p style="text-align:right">Human Centric Consulting</p>
             <?php 
                 unset($_SESSION['data']);
             else :?>
@@ -86,19 +87,19 @@ session_start();
                     <label for="mail" class="col-sm-2 col-form-label">requis :</label>
                     <div class="col-sm-10">
                         <input type="email" class="form-control" id="mail" name="email"
-                            placeholder="ex: jean.dupont@outlook.fr" goto="0" required>
+                            placeholder="ex: jean.dupont@outlook.fr" required>
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-12">
-                        <div id="mailcheck" class="btn btn-primary btn-block next hide mx-auto">Suivant</div>
+                        <div id="mailcheck" class="btn btn-primary btn-block next hide">Suivant</div>
                     </div>
                 </div>
             </div>
 
             <!--elements[1]-->
             <div class="element hide">
-                <h3>Qui êtes-vous?</h3>
+                <h3>Pour quel type d'entreprise travaillez-vous?</h3>
                 <fieldset class="form-group">
                     <div class="row">
 
@@ -118,7 +119,8 @@ session_start();
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="structure" id="gridRadios3" value="ETI" goto="2">
+                                <input class="form-check-input" type="radio" name="structure" id="gridRadios3"
+                                    value="ETI" goto="2">
                                 <label class="form-check-label" for="gridRadios3">
                                     Je suis une ETI
                                 </label>
@@ -127,7 +129,7 @@ session_start();
                                 <input class="form-check-input" type="radio" name="structure" id="gridRadios4"
                                     value="GE" goto="2">
                                 <label class="form-check-label" for="gridRadios4">
-                                    Je suis une GE
+                                    Je suis une Grande Entreprise
                                 </label>
                             </div>
 
@@ -148,23 +150,23 @@ session_start();
 
             <!--elements[2]-->
             <div class="element hide">
-                <h3>Avez-vous déjà suivi une formation digitale (Internet)</h3>
+                <h3>Qui serez-vous sur ce projet</h3>
                 <fieldset class="form-group">
                     <div class="row">
 
                         <div class="col-sm-12">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="formation_digitale" id="gridRadios5"
+                                <input class="form-check-input" type="radio" name="decisionnaire" id="gridRadios5"
                                     value="oui" goto="3">
                                 <label class="form-check-label" for="gridRadios5">
-                                    Oui
+                                    Je serai le décisionnaire
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="formation_digitale" id="gridRadios6"
-                                    value="non" goto="4">
+                                <input class="form-check-input" type="radio" name="decisionnaire" id="gridRadios6"
+                                    value="non" goto="3">
                                 <label class="form-check-label" for="gridRadios6">
-                                    Non
+                                    Je serai votre interlocuteur
                                 </label>
                             </div>
 
@@ -183,21 +185,21 @@ session_start();
 
             <!--elements[3]-->
             <div class="element hide">
-                <h3>Avez-vous déjà travaillé sur un projet digital (Internet)</h3>
+                <h3>Avez-vous déjà suivi une formation?</h3>
                 <fieldset class="form-group">
                     <div class="row">
 
                         <div class="col-sm-12">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="projet_digital" id="gridRadios7"
+                                <input class="form-check-input" type="radio" name="formation" id="gridRadios7"
                                     value="oui" goto="4">
                                 <label class="form-check-label" for="gridRadios7">
                                     Oui
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="projet_digital" id="gridRadios8"
-                                    value="non" goto="5">
+                                <input class="form-check-input" type="radio" name="formation" id="gridRadios8"
+                                    value="non" goto="4">
                                 <label class="form-check-label" for="gridRadios8">
                                     Non
                                 </label>
@@ -217,23 +219,39 @@ session_start();
 
             <!--elements[4]-->
             <div class="element hide">
-                <h3>D'autres personnes doivent-elles participer aux échanges</h3>
+                <h3>Où en êtes-vous dans votre projet?</h3>
                 <fieldset class="form-group">
                     <div class="row">
 
                         <div class="col-sm-12">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="interlocuteurs" id="gridRadios9"
-                                    value="oui" goto="5">
+                                <input class="form-check-input" type="radio" name="interesse_par" id="gridRadios9"
+                                    value="transformation digitale" goto="5">
                                 <label class="form-check-label" for="gridRadios9">
-                                    Oui
+                                    Je recherche des informations sur la transformation digitale
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="interlocuteurs" id="gridRadios10"
-                                    value="non" goto="6">
+                                <input class="form-check-input" type="radio" name="interesse_par" id="gridRadios10"
+                                    value="cabinet de consulting digital" goto="5">
                                 <label class="form-check-label" for="gridRadios10">
-                                    Non, je suis seul
+                                    Je recherche des informations sur des cabinets de consulting digital
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="interesse_par" id="gridRadios11"
+                                    value="audit technique de l'entreprise" goto="5">
+                                <label class="form-check-label" for="gridRadios11">
+                                    je réalise un audit technique de mon entreprise
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="interesse_par" id="gridRadios12"
+                                    value="vos services" goto="5">
+                                <label class="form-check-label" for="gridRadios12">
+                                    Je recherche des informations sur vos services
                                 </label>
                             </div>
 
@@ -249,6 +267,466 @@ session_start();
                 </div>
             </div>
             <!--elements[5]-->
+            <div class="element hide">
+                <h3>La transformation digitale est-elle une de vos priorités?</h3>
+                <fieldset class="form-group">
+                    <div class="row">
+
+                        <div class="col-sm-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="priorite" id="gridRadios13"
+                                    value="oui" goto="6">
+                                <label class="form-check-label" for="gridRadios13">
+                                    Oui
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="priorite" id="gridRadios14"
+                                    value="non" goto="7">
+                                <label class="form-check-label" for="gridRadios14">
+                                    Non
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="form-group row">
+                    <div class="col-sm-12">
+
+                        <div class="btn btn-primary btn-block next">Suivant</div>
+                        <div class="btn btn-default btn-block prev">Précédent</div>
+                    </div>
+                </div>
+            </div>
+            <!--elements[6]-->
+            <div class="element hide">
+                <h3>D'autres personnes participeront-elles à nos échanges?</h3>
+                <fieldset class="form-group">
+                    <div class="row">
+
+                        <div class="col-sm-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="autre_interlocuteur"
+                                    id="gridRadios15" value="oui" goto="7">
+                                <label class="form-check-label" for="gridRadios15">
+                                    Oui
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="autre_interlocuteur"
+                                    id="gridRadios16" value="non" goto="7">
+                                <label class="form-check-label" for="gridRadios16">
+                                    Non
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="form-group row">
+                    <div class="col-sm-12">
+
+                        <div class="btn btn-primary btn-block next">Suivant</div>
+                        <div class="btn btn-default btn-block prev">Précédent</div>
+                    </div>
+                </div>
+            </div>
+            <!--elements[7]-->
+            <div class="element hide">
+                <h3>Quel est l'avis de vos équipes sur la transformation digitale?</h3>
+                <fieldset class="form-group">
+                    <div class="row">
+
+                        <div class="col-sm-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="avis_equipe_transformation_digitale"
+                                    id="gridRadios17" value="très bon" goto="8">
+                                <label class="form-check-label" for="gridRadios17">
+                                    Très bon
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="avis_equipe_transformation_digitale"
+                                    id="gridRadios18" value="plutôt bon" goto="8">
+                                <label class="form-check-label" for="gridRadios18">
+                                    Plutôt bon
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="avis_equipe_transformation_digitale"
+                                    id="gridRadios19" value="bon" goto="8">
+                                <label class="form-check-label" for="gridRadios19">
+                                    Bon
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="avis_equipe_transformation_digitale"
+                                    id="gridRadios20" value="plutôt mauvais" goto="8">
+                                <label class="form-check-label" for="gridRadios20">
+                                    Plutôt mauvais
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="avis_equipe_transformation_digitale"
+                                    id="gridRadios21" value="très mauvais" goto="9">
+                                <label class="form-check-label" for="gridRadios21">
+                                    Très mauvais
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="form-group row">
+                    <div class="col-sm-12">
+
+                        <div class="btn btn-primary btn-block next">Suivant</div>
+                        <div class="btn btn-default btn-block prev">Précédent</div>
+                    </div>
+                </div>
+            </div>
+            <!--elements[8]-->
+            <div class="element hide">
+                <h3>Vos équipes craignent-elles un impact négatif sur leur travail</h3>
+                <fieldset class="form-group">
+                    <div class="row">
+
+                        <div class="col-sm-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="crainte" id="gridRadios22"
+                                    value="oui" goto="9">
+                                <label class="form-check-label" for="gridRadios22">
+                                    Oui
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="crainte" id="gridRadios23"
+                                    value="non" goto="9">
+                                <label class="form-check-label" for="gridRadios23">
+                                    Non
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="crainte" id="gridRadios24"
+                                    value="mitigé" goto="9">
+                                <label class="form-check-label" for="gridRadios24">
+                                    Elles sont mitigées
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="crainte" id="gridRadios25"
+                                    value="je ne sais pas" goto="9">
+                                <label class="form-check-label" for="gridRadios25">
+                                    Je ne sais pas
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="form-group row">
+                    <div class="col-sm-12">
+
+                        <div class="btn btn-primary btn-block next">Suivant</div>
+                        <div class="btn btn-default btn-block prev">Précédent</div>
+                    </div>
+                </div>
+            </div>
+            <!--elements[9]-->
+            <div class="element hide">
+                <h3>Avous-vous les ressources humaines pour accompagner vos équipes?</h3>
+                <fieldset class="form-group">
+                    <div class="row">
+
+                        <div class="col-sm-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="ressources_humaines"
+                                    id="gridRadios26" value="oui" goto="13">
+                                <label class="form-check-label" for="gridRadios26">
+                                    Oui
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="ressources_humaines"
+                                    id="gridRadios27" value="pas assez" goto="10">
+                                <label class="form-check-label" for="gridRadios27">
+                                    Pas assez
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="ressources_humaines"
+                                    id="gridRadios28" value="non" goto="10">
+                                <label class="form-check-label" for="gridRadios28">
+                                    Non
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="form-group row">
+                    <div class="col-sm-12">
+
+                        <div class="btn btn-primary btn-block next">Suivant</div>
+                        <div class="btn btn-default btn-block prev">Précédent</div>
+                    </div>
+                </div>
+            </div>
+            <!--elements[10]-->
+            <div class="element hide">
+                <h3>Vos clients sont-ils familiers avec les appareils numériques?</h3>
+                <fieldset class="form-group">
+                    <div class="row">
+
+                        <div class="col-sm-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="clients_et_appareils_numeriques"
+                                    id="gridRadios29" value="familiarisés" goto="11">
+                                <label class="form-check-label" for="gridRadios29">
+                                    Oui
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="clients_et_appareils_numeriques"
+                                    id="gridRadios30" value="non familiarisés" goto="11">
+                                <label class="form-check-label" for="gridRadios30">
+                                    Non
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="form-group row">
+                    <div class="col-sm-12">
+
+                        <div class="btn btn-primary btn-block next">Suivant</div>
+                        <div class="btn btn-default btn-block prev">Précédent</div>
+                    </div>
+                </div>
+            </div>
+            <!--elements[11]-->
+            <div class="element hide">
+                <h3>Vos clients sont-ils familiers avec les réseaux sociaux?</h3>
+                <fieldset class="form-group">
+                    <div class="row">
+
+                        <div class="col-sm-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="clients_et_reseaux_sociaux"
+                                    id="gridRadios31" value="familiarisés" goto="12">
+                                <label class="form-check-label" for="gridRadios31">
+                                    Oui
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="clients_et_reseaux_sociaux"
+                                    id="gridRadios32" value="non familiarisés" goto="12">
+                                <label class="form-check-label" for="gridRadios32">
+                                    Non
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="form-group row">
+                    <div class="col-sm-12">
+
+                        <div class="btn btn-primary btn-block next">Suivant</div>
+                        <div class="btn btn-default btn-block prev">Précédent</div>
+                    </div>
+                </div>
+            </div>
+            <!--elements[12]-->
+            <div class="element hide">
+                <h3>Selon vous, vos clients pensent-ils que la numérisation a un impact positif dans leurs vies?</h3>
+                <fieldset class="form-group">
+                    <div class="row">
+
+                        <div class="col-sm-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="impact_numerisation"
+                                    id="gridRadios33" value="très" goto="13">
+                                <label class="form-check-label" for="gridRadios33">
+                                    Très
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="impact_numerisation"
+                                    id="gridRadios34" value="assez" goto="13">
+                                <label class="form-check-label" for="gridRadios34">
+                                    Assez
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="impact_numerisation"
+                                    id="gridRadios35" value="pas assez" goto="13">
+                                <label class="form-check-label" for="gridRadios35">
+                                    Pas assez
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="impact_numerisation"
+                                    id="gridRadios36" value="pas du tout" goto="13">
+                                <label class="form-check-label" for="gridRadios36">
+                                    Pas du tout
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="form-group row">
+                    <div class="col-sm-12">
+
+                        <div class="btn btn-primary btn-block next">Suivant</div>
+                        <div class="btn btn-default btn-block prev">Précédent</div>
+                    </div>
+                </div>
+            </div>
+            <!--elements[13]-->
+            <div class="element hide">
+                <h3>Selon vous, vos concurrents ont-ils déjà engagé une transformation digitale?</h3>
+                <fieldset class="form-group">
+                    <div class="row">
+
+                        <div class="col-sm-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="transformation_digitale_concurrent"
+                                    id="gridRadios37" value="oui" goto="14">
+                                <label class="form-check-label" for="gridRadios37">
+                                    Oui
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="transformation_digitale_concurrent"
+                                    id="gridRadios38" value="ne sais pas" goto="14">
+                                <label class="form-check-label" for="gridRadios38">
+                                    Je ne sais pas
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="transformation_digitale_concurrent"
+                                    id="gridRadios39" value="non" goto="14">
+                                <label class="form-check-label" for="gridRadios39">
+                                    Non
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="form-group row">
+                    <div class="col-sm-12">
+
+                        <div class="btn btn-primary btn-block next">Suivant</div>
+                        <div class="btn btn-default btn-block prev">Précédent</div>
+                    </div>
+                </div>
+            </div>
+
+            <!--elements[14]-->
+            <div class="element hide">
+                <h3>Faites-vous une veille concurrentielle poussée et régulière?</h3>
+                <fieldset class="form-group">
+                    <div class="row">
+
+                        <div class="col-sm-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="veille_concurrentielle"
+                                    id="gridRadios40" value="oui" goto="15">
+                                <label class="form-check-label" for="gridRadios40">
+                                    Oui
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="veille_concurrentielle"
+                                    id="gridRadios41" value="pas assez" goto="15">
+                                <label class="form-check-label" for="gridRadios41">
+                                    Pas assez
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="veille_concurrentielle"
+                                    id="gridRadios42" value="non" goto="15">
+                                <label class="form-check-label" for="gridRadios42">
+                                    Non
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="veille_concurrentielle"
+                                    id="gridRadios43" value="pas du tout" goto="15">
+                                <label class="form-check-label" for="gridRadios43">
+                                    Pas du tout
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="form-group row">
+                    <div class="col-sm-12">
+
+                        <div class="btn btn-primary btn-block next">Suivant</div>
+                        <div class="btn btn-default btn-block prev">Précédent</div>
+                    </div>
+                </div>
+            </div>
+            <!--elements[15]-->
+            <div class="element hide">
+                <h3>Quels sont vos besoins?</h3>
+                <fieldset class="form-group">
+                    <div class="row">
+
+                        <div class="col-sm-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="besoins" id="gridRadios44"
+                                    value="initier virage digital" goto="16">
+                                <label class="form-check-label" for="gridRadios44">
+                                    Je dois initier un virage digital
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="besoins" id="gridRadios45"
+                                    value="renouveler transition digitale" goto="16">
+                                <label class="form-check-label" for="gridRadios45">
+                                    Je dois renouveler notre transition digitale
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="besoins" id="gridRadios46"
+                                    value="ne sait pas" goto="17">
+                                <label class="form-check-label" for="gridRadios46">
+                                    Je réfléchis encore
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="form-group row">
+                    <div class="col-sm-12">
+
+                        <div class="btn btn-primary btn-block next">Suivant</div>
+                        <div class="btn btn-default btn-block prev">Précédent</div>
+                    </div>
+                </div>
+            </div>
+
+            <!--elements[16]-->
             <div class="element hide">
                 <h3>Merci pour le temps que vous nous avez consacré.</h3>
                 <div class="form-group">
@@ -267,7 +745,7 @@ session_start();
                 </div>
             </div>
 
-            <!--elements[6]-->
+            <!--elements[17]-->
             <div class="element hide">
                 <h3>Merci pour le temps que vous nous avez consacré.</h3>
                 <div class="form-group">
@@ -285,6 +763,7 @@ session_start();
                     </div>
                 </div>
             </div>
+
             <div class="progress hide">
                 <div id="dynamic" class="progress-bar progress-bar-success progress-bar-striped active"
                     role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">

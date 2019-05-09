@@ -31,17 +31,20 @@ $(document).ready(function () {
   });
 
   $('.next').click(function () { // on cible maintenant les boutons "SUIVANT"
+    console.log(progression);
     elements[progression[progression.length - 2]].classList.add('hide'); // on masque l'avant dernier élément (car le dernier correspond à l'actuel)
-    if (goto == 0) goto++; // à la premiere étape, goto n'est pas défini, on l'incrémente de 1 pour passer à l'élément suivant
+    if (goto == 0) goto++; // à la premiere étape, goto est égal à 0, on l'incrémente de 1 pour passer à l'élément suivant
     elements[goto].classList.remove('hide'); // on affiche l'élément sur lequel on pointe
     ceil = progression.length; // et on définit immédiatement la taille actuelle du tableau qui servira à éviter les erreurs lors de la sélection du prochain input radio
-    current_progress = goto / (elements.length - 2) * 100;// ici on calcule le pourcentage de progression en fonction du prochain élément à afficher pour le passer à notre barre
+    current_progress = (goto / (elements.length - 2) * 100).toFixed(0);// ici on calcule le pourcentage de progression en fonction du prochain élément à afficher pour le passer à notre barre
     updateBar();
   })
 
   $('.prev').click(function () { //on cible les boutons "PRECEDENT"
-    current_progress = [progression[progression.length - 2]] / (elements.length - 2) * 100; // ici on calcule le pourcentage de progression en fonction du précédent élément pour le passer à notre barre
+    current_progress = ([progression[progression.length - 2]] / (elements.length - 2) * 100).toFixed(0); // ici on calcule le pourcentage de progression en fonction du précédent élément pour le passer à notre barre
+    goto = [progression[progression.length - 2]];
     elements[progression[progression.length - 1]].classList.add('hide');
+    
 
     if (progression.length > 2) { // on s'assure de ne jamais aller effacer les indices correspondant au début de notre parcours (aucun moyen de les push de nouveau)
       // on masque l'élément en cours
@@ -54,8 +57,9 @@ $(document).ready(function () {
     }
 
     ceil = progression.length;// on met à jour la donnée stockant la taille du tableau afin de ne pas entrainer un muavais comportement lors de la sélection des input radio
-    goto = 0; // et on remet à 0 le goto, au cas ou nos manipulations nous ont ramené au début. Sinon, cette variable sera remise à jour des la sélection de l'input radio
+    //goto = 0; // et on remet à 0 le goto, au cas ou nos manipulations nous ont ramené au début. Sinon, cette variable sera remise à jour des la sélection de l'input radio
     updateBar();
+    console.log(progression);
     uncheck = $(':checked').last().prop("checked", false); //afin d'envoyer des résultats erronés en bdd, on effectue un uncheck pour le dernier élément choisi par erreur
   })
 
